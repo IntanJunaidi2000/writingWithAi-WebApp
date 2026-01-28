@@ -38,24 +38,37 @@ Hosting:  Railway / Render (free tiers)
 
 ### Core Features (MVP)
 
-**Phase 1 - Foundation**
+**Phase 1 - Foundation + MD Editor**
 | Feature | Priority | Notes |
 |---------|----------|-------|
 | Guest mode (no login) | Must | Local storage only |
-| User registration/login | Must | Unlocks cloud sync |
-| Create/edit MD files | Must | Basic markdown |
-| File browser (folders) | Must | Organize projects |
-| Auto-save | Must | Local + cloud for logged in |
-
-**Phase 2 - Editor**
-| Feature | Priority | Notes |
-|---------|----------|-------|
-| Primary editor panel | Must | Main writing area |
+| Primary editor panel | Must | Main writing area + use dummy file first |
 | Reference panel (side) | Must | View second file read-only |
+| Create/edit MD files | Must | Basic markdown |
 | MD preview toggle | Should | See formatted output |
+| Local Auto-save | Must | Local |
 | Basic formatting toolbar | Should | Bold, italic, headers, etc |
 
-**Phase 3 - AI Integration**
+**Phase 2 - Export**
+| Feature | Priority | Notes |
+|---------|----------|-------|
+| Export to DOCX | Must | Novel/manuscript format |
+| Export to PDF | Should | Print-ready |
+| Format preferences | Should | Font, margins, etc |
+
+**Phase 3 - File Directory**
+| Feature | Priority | Notes |
+|---------|----------|-------|
+| Local File browser (folders) | Must | Organize projects + Filtering |
+
+**Phase 4 - Online Integration**
+| Feature | Priority | Notes |
+|---------|----------|-------|
+| User registration/login | Must | Unlocks cloud sync |
+| Cloud Database set up | Must | mySQL cloud? |
+| Cloud & Local Sync | Must | Sync with local |
+
+**Phase 5 - AI Integration**
 | Feature | Priority | Notes |
 |---------|----------|-------|
 | API key input (user's own) | Must | Stored securely |
@@ -63,12 +76,6 @@ Hosting:  Railway / Render (free tiers)
 | AI comments in document | Should | Inline feedback |
 | Works without AI | Must | Core app functional without key |
 
-**Phase 4 - Export**
-| Feature | Priority | Notes |
-|---------|----------|-------|
-| Export to DOCX | Must | Novel/manuscript format |
-| Export to PDF | Should | Print-ready |
-| Format preferences | Should | Font, margins, etc |
 
 ---
 
@@ -108,7 +115,7 @@ Acceptance Criteria:
 | Database | MySQL (Railway or PlanetScale) |
 | Frontend | React |
 | Auth | Spring Security + JWT |
-| AI | Claude API (user's key) |
+| AI | Claude API (user's key) - should work on any API |
 | Hosting | Railway (later) |
 
 -> Railway (Trial: $5 free credit, probably $0-3/month on Hobby plan)
@@ -123,35 +130,35 @@ USER
 ├── username
 ├── email
 ├── password
-├── api_key (nullable, encrypted)
+~~├── api_key (nullable, encrypted)~~ (implement later)
 ├── created_at
 
-PROJECT
+~~PROJECT 
 ├── id (PK)
 ├── name
 ├── user_id (FK) → USER
 ├── parent_id (FK) → PROJECT (nullable)
-├── created_at
+├── created_at~~ (implement later)
 
 DOCUMENT
 ├── id (PK)
 ├── title
 ├── content (LONGTEXT)
 ├── user_id (FK) → USER
-├── project_id (FK) → PROJECT (nullable)
+~~├── project_id (FK) → PROJECT (nullable)~~ (implement later)
 ├── created_at
 ├── updated_at
 
-AI_COMMENT
+~~AI_COMMENT 
 ├── id (PK)
 ├── document_id (FK) → DOCUMENT
 ├── line_number (where in doc)
 ├── comment_text
 ├── comment_type (grammar/style/plot/suggestion)
 ├── is_resolved (boolean)
-├── created_at
+├── created_at~~(implement Later)
 
-EXPORT_PRESET
+~~EXPORT_PRESET
 ├── id (PK)
 ├── user_id (FK) → USER
 ├── preset_name
@@ -160,15 +167,15 @@ EXPORT_PRESET
 ├── margin_size
 ├── line_spacing
 ├── is_default (boolean)
-├── created_at
+├── created_at~~ (implement Later)
 
-USER (1) ────< (many) PROJECT
-USER (1) ────< (many) DOCUMENT
-USER (1) ────< (many) EXPORT_PRESET
+~~USER (1) (many) PROJECT~~ (implement later)
+USER (1) (many) DOCUMENT
+~~USER (1) (many) EXPORT_PRESET~~ (implement later)
 
-PROJECT (1) ────< (many) PROJECT (self-reference)
-PROJECT (1) ────< (many) DOCUMENT (optional)
+~~PROJECT (1) (many) PROJECT (self-reference)~~ (implement later)
+~~PROJECT (1) (many) DOCUMENT (optional)~~ (implement later)
 
-DOCUMENT (1) ────< (many) AI_COMMENT
+~~DOCUMENT (1) (many) AI_COMMENT~~ (implement later)
 
 
