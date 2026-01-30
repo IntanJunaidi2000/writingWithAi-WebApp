@@ -1,5 +1,5 @@
-# writingWithAi-WebApp
-Vision: A simple, distraction-free writing app for authors with AI assistance
+# Vis - writing web app ~~writingWithAi-WebApp~~
+Vision: A simple, distraction-free writing app for authors with and without AI assistance
 
 # Target Users
 | User Type | Description |
@@ -35,46 +35,50 @@ Hosting:  Railway / Render (free tiers)
 -> Railway (Trial: $5 free credit, probably $0-3/month on Hobby plan)
 -> Render (Free web services spin down after 15 minutes of inactivity, causing a delay on the next request.)
 
+## Core Features (MVP)
 
-### Core Features (MVP)
+### Phase 1 - Backend Foundation
+| Feature | Priority | Notes |
+|---------|----------|-------|
+| MySQL database setup | Must | Local MySQL |
+| Spring Boot project setup | Must | Basic MVC architecture |
+| User & Document entities | Must | Based on ERD |
+| Basic CRUD API | Must | Create, Read, Update, Delete |
 
-**Phase 1 - Foundation + MD Editor**
+### Phase 2 - Backend Authentication
+| Feature | Priority | Notes |
+|---------|----------|-------|
+| Spring Security setup | Must | Add back dependency |
+| User registration | Must | Create account |
+| User login/logout | Must | JWT or session |
+
+### Phase 3 - Frontend Editor
 | Feature | Priority | Notes |
 |---------|----------|-------|
 | Guest mode (no login) | Must | Local storage only |
-| Primary editor panel | Must | Main writing area + use dummy file first |
+| Primary editor panel | Must | Main writing area |
 | Reference panel (side) | Must | View second file read-only |
 | Create/edit MD files | Must | Basic markdown |
 | MD preview toggle | Should | See formatted output |
-| Local Auto-save | Must | Local |
+| Local auto-save | Must | Browser storage |
 | Basic formatting toolbar | Should | Bold, italic, headers, etc |
 
-**Phase 2 - Export**
+### Phase 4 - Integration
+| Feature | Priority | Notes |
+|---------|----------|-------|
+| Connect frontend to backend | Must | API calls |
+| Cloud & local sync | Must | Backup/restore files |
+| File browser (folders) | Must | Organize projects + filtering |
+
+### Phase 5 - Additional Features
 | Feature | Priority | Notes |
 |---------|----------|-------|
 | Export to DOCX | Must | Novel/manuscript format |
 | Export to PDF | Should | Print-ready |
 | Format preferences | Should | Font, margins, etc |
-
-**Phase 3 - File Directory**
-| Feature | Priority | Notes |
-|---------|----------|-------|
-| Local File browser (folders) | Must | Organize projects + Filtering |
-
-**Phase 4 - Online Integration**
-| Feature | Priority | Notes |
-|---------|----------|-------|
-| User registration/login | Must | Unlocks cloud sync |
-| Cloud Database set up | Must | mySQL cloud? |
-| Cloud & Local Sync | Must | Sync with local |
-
-**Phase 5 - AI Integration**
-| Feature | Priority | Notes |
-|---------|----------|-------|
 | API key input (user's own) | Must | Stored securely |
 | AI chat panel | Must | Ask questions, get help |
 | AI comments in document | Should | Inline feedback |
-| Works without AI | Must | Core app functional without key |
 
 
 ---
