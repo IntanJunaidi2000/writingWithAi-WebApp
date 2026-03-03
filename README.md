@@ -80,35 +80,6 @@ Hosting:  Railway / Render (free tiers)
 | AI chat panel | Must | Ask questions, get help |
 | AI comments in document | Should | Inline feedback |
 
-
----
-
-### User Stories (Examples)
-
-```
-US-001: Guest Writing
-AS A guest user
-I WANT TO write without creating an account
-SO THAT I can try the app quickly
-
-Acceptance Criteria:
-- [ ] Can access editor without login
-- [ ] Files save to browser local storage
-- [ ] Banner shows "Login to sync to cloud"
-```
-
-```
-US-002: Cloud Sync
-AS A registered user
-I WANT TO access my files from any device
-SO THAT I can write anywhere
-
-Acceptance Criteria:
-- [ ] Files sync to cloud on save
-- [ ] Can see all files when logged in elsewhere
-- [ ] Offline changes sync when back online
-```
-
 ---
 
 ### Tech Stack
@@ -128,6 +99,9 @@ Acceptance Criteria:
 ---
 
 Full ERD Structure
+
+<img width="623" height="376" alt="WritingApp" src="https://github.com/user-attachments/assets/42dab6fa-ff6a-4044-b3e1-848dd5004a36" />
+
 
 USER
 ├── id (PK)
@@ -182,4 +156,30 @@ USER (1) (many) DOCUMENT
 
 ~~DOCUMENT (1) (many) AI_COMMENT~~ (implement later)
 
+---
 
+### User Stories (Examples)
+
+```
+US-001: Guest Writing
+AS A guest user
+I WANT TO write without creating an account
+SO THAT I can try the app quickly
+
+Acceptance Criteria:
+- [ ] Can access editor without login
+- [ ] Files save to browser local storage
+- [ ] Banner shows "Login to sync to cloud"
+```
+
+```
+US-002: Cloud Sync
+AS A registered user
+I WANT TO access my files from any device
+SO THAT I can write anywhere
+
+Acceptance Criteria:
+- [ ] Files sync to cloud on save
+- [ ] Can see all files when logged in elsewhere
+- [ ] Offline changes sync when back online
+```
